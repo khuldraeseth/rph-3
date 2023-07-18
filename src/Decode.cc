@@ -35,6 +35,9 @@ auto main(int argc, char const* const* argv) -> int {
     auto const args = std::span(argv, std::next(argv, argc));
     std::cout << "Encoded matrix '" << args.front() << "'\n";
 
+    auto const owner = std::string_view(nameBegin, nameEnd);
+    std::cout << "Owner: " << owner << std::endl;
+
     // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
     auto const& timestamp = reinterpret_cast<Timestamp const&>(*timestampBegin);
     std::cout << "Timestamp: " << timestamp.count() << std::endl;
