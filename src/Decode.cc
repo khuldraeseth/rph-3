@@ -32,15 +32,29 @@ EXTERN_BINARY(timestamp, bin)
 using Timestamp = std::chrono::duration<int>;
 
 auto main(int argc, char const* const* argv) -> int {
+    using std::literals::operator""sv;
+
     auto const args = std::span(argv, std::next(argv, argc));
-    std::cout << "Encoded matrix '" << args.front() << "'\n";
+    auto const verbose = args.size() > 1 and args[1] == "-v"sv;
 
     auto const owner = std::string_view(nameBegin, nameEnd);
-    std::cout << "Owner: " << owner << std::endl;
+    if (verbose) {
+        std::cout << "Owner: " << owner << "\n";
+    } else {
+        std::cout << owner << "\n";
+    }
 
-    // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
-    auto const& timestamp = reinterpret_cast<Timestamp const&>(*timestampBegin);
-    std::cout << "Timestamp: " << timestamp.count() << std::endl;
+    if (verbose) {
+        std::cout << "Encoded matrix '" << args.front() << "'\n";
+    } else {
+        std::cout << args.front() << "\n";
+    }
+
+    if (verbose) {
+        // NOLINTNEXTLINE(cppcoreguidelines-pro-type-reinterpret-cast)
+        auto const& timestamp = reinterpret_cast<Timestamp const&>(*timestampBegin);
+        std::cout << "Timestamp: " << timestamp.count() << std::endl;
+    }
 
     std::cout << DIMENSIONS << std::endl;
 
