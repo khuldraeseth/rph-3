@@ -1,13 +1,8 @@
-#include <span>
-#ifndef DIMENSIONS
-#define DIMENSIONS \
-    Dimensions { .z = 1, .y = 2, .x = 3 }
-#endif
-
 #include <algorithm>
 #include <chrono>
 #include <iostream>
 #include <iterator>
+#include <span>
 #include <string_view>
 
 #include <Dimensions.hh>

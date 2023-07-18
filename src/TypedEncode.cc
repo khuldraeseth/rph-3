@@ -1,18 +1,3 @@
-#ifndef NAME
-// NOLINTNEXTLINE(cppcoreguidelines-macro-usage)
-#define NAME "khuldo"
-#endif
-
-#ifndef FILENAME
-// NOLINTNEXTLINE(cppcoreguidelines-macro-usage)
-#define FILENAME "encoded"
-#endif
-
-#ifndef DIMENSIONS
-#define DIMENSIONS \
-    Dimensions { .z = 1, .y = 2, .x = 3 }
-#endif
-
 #include <chrono>
 #include <fstream>
 #include <iostream>
