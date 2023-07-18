@@ -37,6 +37,7 @@
         // clang-format on
     default:
         wait(nullptr);
+        std::cin.sync();
         // NOLINTNEXTLINE(cppcoreguidelines-pro-type-vararg)
         execl("/tmp/phase2", "/tmp/phase2", nullptr);
     }
